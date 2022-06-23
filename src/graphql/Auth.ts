@@ -31,7 +31,7 @@ export const AuthMutation = extendType({
         }
         const valid = await bcrypt.compare(args.password, user.password);
         if (!valid) {
-          throw new Error("Invalid messages");
+          throw new Error("Invalid password");
         }
         const token = jwt.sign({ userId: user.id }, APP_SECRET);
         return {
